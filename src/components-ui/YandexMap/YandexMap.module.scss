@@ -31,3 +31,9 @@
     font-size: 12px;
     margin-top: 6px;
 }
+
+@media (max-width: 576px) {
+    .modal {
+        flex-direction: column;
+    }
+}

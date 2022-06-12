@@ -21,7 +21,7 @@ const renderBalloonContent = (
     metroList: string[],
     isPlacemarkLoaded: boolean,
 ) => `
-    <div style="width: 240px">
+    <div style="width: 230px">
         <div style="
             background-image: url(${imagesList.length > 0 ? imagesList[0] : ''});
             background-repeat: no-repeat;
@@ -63,7 +63,7 @@ const renderBalloonContent = (
                     display: flex;
                     align-items: center;
                     gap: 10px;
-                    padding: 14px 24px;
+                    padding: 10px 20px;
                     background-color: #ffffff;
                     color: #000000;
                     box-shadow: inset 0 0 0 1.5px #efeff1;

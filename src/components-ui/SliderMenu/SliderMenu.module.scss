@@ -5,7 +5,7 @@
     bottom: 0;
     width: 100%;
     background-color: $white;
-    padding: 20px;
+    padding: 0 20px 20px 20px;
     border-radius: 26px 26px 0 0;
     overflow: hidden;
 }
@@ -13,7 +13,8 @@
 .lineWrapper {
     display: flex;
     justify-content: center;
-    height: 30px;
+    align-items: center;
+    height: 50px;
     width: 100%;
 }
 
