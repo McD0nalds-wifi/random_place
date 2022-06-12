@@ -9,9 +9,9 @@ const API = {
         success: (response: AxiosResponse<R>) => void,
         failure: (response: AxiosResponse<any> | undefined) => void,
     ) => {
-        let apiData: string[] = []
+        const apiData: string[] = []
 
-        for (let key in data) {
+        for (const key in data) {
             apiData.push(`${key}=${data[key]}`)
         }
 
@@ -30,7 +30,7 @@ const API = {
         success: (response: AxiosResponse<R>) => void,
         failure: (response: AxiosResponse<any> | undefined) => void,
     ) => {
-        return $authHost
+        return $host
             .post(url, data ? data : undefined)
             .then((res: AxiosResponse<R>) => success(res))
             .catch((err: AxiosError<any>) => failure(err.response))
@@ -44,9 +44,9 @@ const API_HOST = {
         success: (response: AxiosResponse<R>) => void,
         failure: (response: AxiosResponse<any> | undefined) => void,
     ) => {
-        let apiData: string[] = []
+        const apiData: string[] = []
 
-        for (let key in data) {
+        for (const key in data) {
             apiData.push(`${key}=${data[key]}`)
         }
 

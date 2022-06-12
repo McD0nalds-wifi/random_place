@@ -98,7 +98,6 @@ const YandexMap: React.FC<ModelsUI.IYandexMapProps> = ({
         setModalOpen(true)
     }
 
-    // @ts-ignore
     React.useEffect(() => {
         if (isPlacemarkLoaded) {
             const yandexMapButton = document.getElementById('yandexMap_button_id')

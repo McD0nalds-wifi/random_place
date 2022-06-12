@@ -1,7 +1,9 @@
 import axios, { AxiosRequestConfig } from 'axios'
 
+import * as constants from '../common/constants'
+
 const $host = axios.create({
-    baseURL: 'http://localhost:5000/',
+    baseURL: constants.isDevMode ? 'http://localhost:5000/' : 'https://random-place-server.ru/',
     withCredentials: true,
     headers: {
         'Content-Type': 'application/json',
@@ -9,7 +11,7 @@ const $host = axios.create({
 })
 
 const $authHost = axios.create({
-    baseURL: 'http://localhost:5000/',
+    baseURL: constants.isDevMode ? 'http://localhost:5000/' : 'https://random-place-server.ru/',
     withCredentials: true,
     headers: {
         'Content-Type': 'application/json',
@@ -24,7 +26,7 @@ $authHost.interceptors.request.use(
 
         return config
     },
-    // @ts-ignore
+
     async (error) => {
         const originalRequest = error.config
         if (error.response.status === 401) {

@@ -1,5 +1,7 @@
 import { ModelsRedux, ModelsUI } from 'types'
 
+export const isDevMode = false // TODO
+
 export const districtList: ModelsRedux.IDistrictItem[] = [
     { id: 1, title: 'Адмиралтейский', isChecked: true },
     { id: 2, title: 'Василеостровский', isChecked: true },
