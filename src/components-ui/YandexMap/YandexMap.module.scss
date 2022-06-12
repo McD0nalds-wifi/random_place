@@ -1,0 +1,33 @@
+.modal {
+    display: flex;
+    gap: 20px;
+}
+
+.modal__image {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.modal__info {
+    min-width: 164px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info__title {
+    font-weight: bold;
+}
+
+.info__text {
+    font-size: 12px;
+    margin-top: 6px;
+}

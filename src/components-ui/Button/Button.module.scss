@@ -1,0 +1,74 @@
+@mixin button {
+    outline: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: 0.2s;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.small {
+    padding: 10px 20px;
+}
+
+.medium {
+    padding: 14px 24px;
+}
+
+.primary {
+    @include button();
+
+    background-color: $darkGray;
+    color: $white;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        background-color: $black;
+        opacity: 1;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+
+    &:disabled:active {
+        background-color: $darkGray;
+        opacity: 0.5;
+    }
+}
+
+.secondary {
+    @include button();
+
+    background-color: $white;
+    color: $black;
+    box-shadow: inset 0 0 0 1.5px $gray;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        background-color: $gray;
+        opacity: 1;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+
+    &:disabled:active {
+        background-color: $darkGray;
+        opacity: 0.5;
+    }
+}

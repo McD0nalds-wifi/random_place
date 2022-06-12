@@ -1,0 +1,16 @@
+.CustomScrollbar {
+    &::-webkit-scrollbar {
+        width: 3px; // ширина scrollbar - используется для вертикального скрола
+        height: 4px; // высота scrollbar - используется для горизонтального скрола
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent; // цвет дорожки
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $darkGray; // цвет плашки
+        border-radius: 42px; // закругления плашки
+    }
+
+    scrollbar-color: $darkGray transparent; // firefox цвет плашки + цвет дорожки
+    scrollbar-width: thin; // firefox ширина + высота scrollbar
+}

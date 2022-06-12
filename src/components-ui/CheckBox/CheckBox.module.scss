@@ -1,0 +1,47 @@
+.checkbox {
+    display: block;
+    position: relative;
+    padding-left: 24px;
+    margin-top: -24px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    input:checked ~ .checkmark {
+        border-color: $darkGray;
+        background-color: $darkGray;
+    }
+
+    input:checked ~ .checkmark:after {
+        display: block;
+    }
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    border-radius: 6px;
+    background-color: $white;
+    border: 1px solid $darkGray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+
+    &:hover {
+        opacity: 0.6;
+    }
+}

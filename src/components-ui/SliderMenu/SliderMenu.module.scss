@@ -1,0 +1,25 @@
+.container {
+    @extend .CustomScrollbar;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: $white;
+    padding: 20px;
+    border-radius: 26px 26px 0 0;
+    overflow: hidden;
+}
+
+.lineWrapper {
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    width: 100%;
+}
+
+.line {
+    width: 100px;
+    height: 5px;
+    background-color: $gray;
+    border-radius: 50px;
+}
