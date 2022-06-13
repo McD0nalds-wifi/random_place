@@ -38,13 +38,29 @@
     position: sticky;
     top: 0;
     background: rgb(255, 255, 255);
+    background: -moz-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 6%,
+        rgba(255, 255, 255, 0.5242471988795518) 74%,
+        rgba(255, 255, 255, 0) 99%
+    );
+    background: -webkit-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 6%,
+        rgba(255, 255, 255, 0.5242471988795518) 74%,
+        rgba(255, 255, 255, 0) 99%
+    );
     background: linear-gradient(
         180deg,
-        rgba(255, 255, 255, 1) 12%,
-        rgba(255, 255, 255, 0.8575805322128851) 38%,
-        rgba(255, 255, 255, 0.3617822128851541) 83%,
-        rgba(0, 212, 255, 0) 100%
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 6%,
+        rgba(255, 255, 255, 0.5242471988795518) 74%,
+        rgba(255, 255, 255, 0) 99%
     );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1);
+
     width: 100%;
     min-height: 50px;
     z-index: 0;
@@ -57,13 +73,30 @@
     position: sticky;
     bottom: 0;
     background: rgb(255, 255, 255);
+    background: rgb(255, 255, 255);
+    background: -moz-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 6%,
+        rgba(255, 255, 255, 0.5242471988795518) 74%,
+        rgba(255, 255, 255, 0) 99%
+    );
+    background: -webkit-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 6%,
+        rgba(255, 255, 255, 0.5242471988795518) 74%,
+        rgba(255, 255, 255, 0) 99%
+    );
     background: linear-gradient(
         0deg,
-        rgba(255, 255, 255, 1) 12%,
-        rgba(255, 255, 255, 0.8575805322128851) 38%,
-        rgba(255, 255, 255, 0.3617822128851541) 83%,
-        rgba(0, 212, 255, 0) 100%
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 6%,
+        rgba(255, 255, 255, 0.5242471988795518) 74%,
+        rgba(255, 255, 255, 0) 99%
     );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1);
+
     width: 100%;
     min-height: 50px;
     z-index: 2;
