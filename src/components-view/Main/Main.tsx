@@ -157,7 +157,11 @@ const Main: React.FC = () => {
                         </Button>
                     </div>
                 </div>
-                <div className={style.map}>
+                <div
+                    className={style.map}
+                    // TODO
+                    style={{ height: window.innerWidth > 576 ? window.innerHeight - 130 : window.innerHeight - 87 }}
+                >
                     {(reducerState.randomPlacePhase === 'Success' || reducerState.randomPlacePhase === 'InProgress') &&
                     reducerState.randomPlaceData ? (
                         <YandexMap
@@ -196,17 +200,15 @@ const Main: React.FC = () => {
                     )}
                 </div>
 
-                <div className={style.mobileMenu}>
-                    <SliderMenu>
-                        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '30px' }}>
-                            <Button type={'Primary'} size={'Small'} onClick={handleSearchPlaceClick}>
-                                Поиск места
-                            </Button>
-                        </div>
+                <SliderMenu>
+                    <div className={style.sliderMenu__button}>
+                        <Button type={'Primary'} size={'Small'} onClick={handleSearchPlaceClick}>
+                            Поиск места
+                        </Button>
+                    </div>
 
-                        {renderMenuContent(reducerState, dispatch)}
-                    </SliderMenu>
-                </div>
+                    {renderMenuContent(reducerState, dispatch)}
+                </SliderMenu>
             </div>
 
             <Loader isLoading={reducerState.randomPlacePhase === 'InProgress'} />

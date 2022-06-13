@@ -32,8 +32,8 @@ const SliderMenu: React.FC<ModelsUI.ISliderMenuProps> = ({ children }) => {
         if (sliderRef.current) {
             sliderRef.current.style.transition = '0.6s'
             sliderRef.current.style.overflow = sliderHeight > sliderPreviousHeight ? 'auto' : 'hidden'
-            sliderRef.current.style.height =
-                sliderHeight > sliderPreviousHeight ? `${sliderMaxHeight}px` : `${sliderMinHeight}px`
+
+            setSliderHeight(sliderHeight > sliderPreviousHeight ? sliderMaxHeight : sliderMinHeight)
         }
     }
 
