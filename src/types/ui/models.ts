@@ -28,6 +28,7 @@ export interface IButtonGroupItem {
 
 export interface IIconProps {
     type: Enums.IconType
+    onClick?: () => void
 }
 
 export interface ICheckboxProps {
@@ -74,4 +75,16 @@ export interface IModalProps {
 
 export interface ISliderMenuProps {
     children: React.ReactNode
+}
+
+export interface IInputProps {
+    type: Enums.InputType
+    value: string
+    label?: string
+    placeholder?: string
+    errorMessage?: string
+    isBlock?: boolean
+    icon?: Enums.IconType
+    onChange: (value: string) => void
+    onBlur?: (value: string) => void
 }

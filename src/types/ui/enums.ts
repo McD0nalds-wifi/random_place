@@ -15,3 +15,10 @@ export type IconType =
     | 'Map'
     | 'Error'
     | 'Sad'
+    | 'OpenEye'
+    | 'CloseEye'
+    | 'Email'
+    | 'Avatar'
+    | 'Logout'
+
+export type InputType = 'Default' | 'Password'

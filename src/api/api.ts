@@ -1,5 +1,6 @@
 import { AxiosError, AxiosResponse } from 'axios'
 
+import { ModelsRedux } from 'types'
 import { $host, $authHost } from '../common/axios'
 
 const API = {
@@ -7,7 +8,7 @@ const API = {
         url: string,
         data: D,
         success: (response: AxiosResponse<R>) => void,
-        failure: (response: AxiosResponse<any> | undefined) => void,
+        failure: (response: AxiosResponse<ModelsRedux.IServerError> | undefined) => void,
     ) => {
         const apiData: string[] = []
 
@@ -18,7 +19,7 @@ const API = {
         return $host
             .get(`${url}?${apiData.join('&')}`)
             .then((res: AxiosResponse<R>) => success(res))
-            .catch((err: AxiosError<any>) => {
+            .catch((err: AxiosError<ModelsRedux.IServerError>) => {
                 if (err.response && err.response.status !== 200) {
                     failure(err.response)
                 }
@@ -28,12 +29,12 @@ const API = {
         url: string,
         data: D,
         success: (response: AxiosResponse<R>) => void,
-        failure: (response: AxiosResponse<any> | undefined) => void,
+        failure: (response: AxiosResponse<ModelsRedux.IServerError> | undefined) => void,
     ) => {
         return $host
             .post(url, data ? data : undefined)
             .then((res: AxiosResponse<R>) => success(res))
-            .catch((err: AxiosError<any>) => failure(err.response))
+            .catch((err: AxiosError<ModelsRedux.IServerError>) => failure(err.response))
     },
 }
 
@@ -42,7 +43,7 @@ const API_HOST = {
         url: string,
         data: D,
         success: (response: AxiosResponse<R>) => void,
-        failure: (response: AxiosResponse<any> | undefined) => void,
+        failure: (response: AxiosResponse<ModelsRedux.IServerError> | undefined) => void,
     ) => {
         const apiData: string[] = []
 
@@ -53,29 +54,29 @@ const API_HOST = {
         return $authHost
             .get(`${url}?${apiData.join('&')}`)
             .then((res: AxiosResponse<R>) => success(res))
-            .catch((err: AxiosError<any>) => failure(err.response))
+            .catch((err: AxiosError<ModelsRedux.IServerError>) => failure(err.response))
     },
     apiPost: async <D, R>(
         url: string,
         data: D,
         success: (response: AxiosResponse<R>) => void,
-        failure: (response: AxiosResponse<any> | undefined) => void,
+        failure: (response: AxiosResponse<ModelsRedux.IServerError> | undefined) => void,
     ) => {
         return $authHost
             .post(url, data ? data : undefined)
             .then((res: AxiosResponse<R>) => success(res))
-            .catch((err: AxiosError<any>) => failure(err.response))
+            .catch((err: AxiosError<ModelsRedux.IServerError>) => failure(err.response))
     },
     apiPut: async <D, R>(
         url: string,
         data: D,
         success: (response: AxiosResponse<R>) => void,
-        failure: (response: AxiosResponse<any> | undefined) => void,
+        failure: (response: AxiosResponse<ModelsRedux.IServerError> | undefined) => void,
     ) => {
         return $authHost
             .put(url, data ? data : undefined)
             .then((res: AxiosResponse<R>) => success(res))
-            .catch((err: AxiosError<any>) => failure(err.response))
+            .catch((err: AxiosError<ModelsRedux.IServerError>) => failure(err.response))
     },
 }
 

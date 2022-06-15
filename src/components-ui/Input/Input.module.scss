@@ -1,0 +1,82 @@
+.wrapper {
+    position: relative;
+    padding-bottom: 0px;
+    transition: 0.2s;
+}
+
+.wrapper_error {
+    padding-bottom: 26px;
+}
+
+.label {
+    margin-bottom: 4px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.input {
+    height: 36px;
+    border: 2px solid $gray;
+    border-radius: 10px;
+    background-color: inherit;
+    color: $black;
+    padding: 10px;
+    font-size: 16px;
+    transition: 0.2s;
+
+    &::placeholder {
+        color: $gray;
+    }
+
+    &:hover {
+        border-color: $darkGray;
+    }
+
+    &:focus {
+        border-color: $darkGray;
+        outline: none;
+    }
+}
+
+.input_offset {
+    padding-right: 40px;
+}
+
+.input_error {
+    border-color: $cherryRed1;
+
+    &:hover {
+        border-color: $cherryRed1;
+    }
+}
+
+.passwordEye {
+    position: absolute;
+    top: 20px;
+    right: 2px;
+    cursor: pointer;
+}
+
+.icon {
+    position: absolute;
+    top: 29px;
+    right: 10px;
+}
+
+.error {
+    position: absolute;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    color: $cherryRed1;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.error_show {
+    height: 20px;
+}
+
+.error_hide {
+    height: 0px;
+}

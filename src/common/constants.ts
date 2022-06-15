@@ -1,6 +1,6 @@
 import { ModelsRedux, ModelsUI } from 'types'
 
-export const isDevMode = false // TODO
+export const isDevMode = true // TODO
 
 export const districtList: ModelsRedux.IDistrictItem[] = [
     { id: 1, title: 'Адмиралтейский', isChecked: true },
@@ -29,3 +29,5 @@ export const categoryItemsList: ModelsUI.IButtonGroupItem[] = [
     { id: '3', title: 'Рестораны', isActive: false, icon: 'Bowl' },
     { id: '4', title: 'Парки', isActive: false, icon: 'Tree' },
 ]
+
+export const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/

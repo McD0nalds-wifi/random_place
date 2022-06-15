@@ -31,13 +31,18 @@ $authHost.interceptors.request.use(
         const originalRequest = error.config
         if (error.response.status === 401) {
             try {
-                const response = await axios.get('http://localhost:5000/api/user/refresh', {
-                    withCredentials: true,
-                })
+                const response = await axios.get(
+                    constants.isDevMode
+                        ? 'http://localhost:5000/api/user/refresh'
+                        : 'https://random-place-server.ru/api/user/refresh',
+                    {
+                        withCredentials: true,
+                    },
+                )
                 localStorage.setItem('token', response.data.accessToken)
                 return $authHost.request(originalRequest)
             } catch (error) {
-                console.log('Не авторизован')
+                // console.log('Не авторизован')
             }
         }
     },

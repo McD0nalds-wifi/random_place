@@ -34,3 +34,36 @@
 .sad {
     height: 130px;
 }
+
+.closeeye {
+    height: 44px;
+    transition: 0.2s;
+
+    &:hover {
+        filter: invert(59%) sepia(23%) saturate(1048%) hue-rotate(200deg) brightness(94%) contrast(99%);
+    }
+}
+
+.openeye {
+    height: 44px;
+    transition: 0.2s;
+
+    &:hover {
+        filter: invert(59%) sepia(23%) saturate(1048%) hue-rotate(200deg) brightness(94%) contrast(99%);
+    }
+}
+
+.email {
+    height: 22px;
+}
+
+.avatar {
+    height: 34px;
+    cursor: pointer;
+}
+
+.logout {
+    height: 34px;
+    cursor: pointer;
+    filter: invert(82%) sepia(12%) saturate(104%) hue-rotate(2deg) brightness(95%) contrast(89%);
+}

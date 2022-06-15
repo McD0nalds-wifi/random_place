@@ -3,9 +3,13 @@ import { ThunkAction } from 'redux-thunk'
 import { Action } from 'redux'
 
 import mainReducer from './reducers/main-reducer'
+import authorizationReducer from './reducers/authorization-reducer'
+import activateReducer from './reducers/activate-reducer'
 
 const rootReducer = combineReducers({
     [mainReducer.name]: mainReducer.reducer,
+    [authorizationReducer.name]: authorizationReducer.reducer,
+    [activateReducer.name]: activateReducer.reducer,
 })
 
 type RootReducerType = typeof rootReducer

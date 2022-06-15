@@ -65,3 +65,48 @@ export interface IAddPlaceRequest {
 export interface IAddPlaceResponse extends IRandomPlaceResponse {
     id: number
 }
+
+export interface IRegistrationRequest {
+    email: string
+    password: string
+    role: Enums.UserRoleType
+}
+
+export interface IRegistrationResponse {
+    user: IUserData
+    accessToken: string
+    refreshToken: string
+}
+
+export interface IUserData {
+    email: string
+    isActivated: boolean
+    activationLink: string
+    id: number
+    role: Enums.UserRoleType
+}
+
+export interface IActivateAccountResponse {
+    email: string
+    isActivated: boolean
+    activationLink: string
+    id: number
+    role: Enums.UserRoleType
+}
+
+export interface ILoginRequest {
+    email: string
+    password: string
+}
+
+export interface ILoginResponse {
+    user: IUserData
+    accessToken: string
+    refreshToken: string
+}
+
+export interface ICheckAuthResponse {
+    user: IUserData
+    accessToken: string
+    refreshToken: string
+}

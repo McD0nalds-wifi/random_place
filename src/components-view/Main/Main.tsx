@@ -1,34 +1,24 @@
 import React from 'react'
-
-import { shallowEqual, useDispatch } from 'react-redux'
+import { shallowEqual } from 'react-redux'
+import { Dispatch } from '@reduxjs/toolkit'
 
 import style from './Main.module.scss'
 
 import { ModelsUI } from 'types'
 
-import {
-    Button,
-    ButtonGroup,
-    CheckBox,
-    Header,
-    Icon,
-    Loader,
-    Slider,
-    SliderMenu,
-    Title,
-    YandexMap,
-} from 'components-ui'
+import { Button, ButtonGroup, CheckBox, Icon, Loader, Slider, SliderMenu, Title, YandexMap } from 'components-ui'
 
 import * as mainThunk from '../../redux/thunks/main-thunk'
 
 import { useTypedSelector } from '../../hooks/useTypedSelector'
+import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 
 /* START - View Main additional imports and module code. */
 import * as constants from '../../common/constants'
 
 import { MainStateType } from '../../redux/reducers/main-reducer'
 
-const renderMenuContent = (reducerState: MainStateType, dispatch: any) => {
+const renderMenuContent = (reducerState: MainStateType, dispatch: Dispatch<any>) => {
     const blurredBackgroundTopRef = React.useRef<HTMLDivElement | null>(null)
     const blurredBackgroundBottomRef = React.useRef<HTMLDivElement | null>(null)
 
@@ -133,18 +123,16 @@ const Main: React.FC = () => {
     /* END - Get store values. */
 
     /* START - Tracking side-effects. */
-    const dispatch = useDispatch<any>()
+    const dispatch = useTypedDispatch()
     /* END - Tracking side-effects. */
 
-    /* START - View MainApp content. */
+    /* START - View Main content. */
     const handleSearchPlaceClick = () => {
         dispatch(mainThunk.callPostRandomPlace())
     }
 
     return (
         <div>
-            <Header />
-
             <div className={style.divider} />
 
             <div className={style.container}>
