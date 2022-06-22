@@ -15,10 +15,8 @@ import geoImage from '../../assets/geo.svg'
 const renderBalloonContent = (
     name: string,
     address: string,
-    description: string,
     rating: number,
     imagesList: string[],
-    metroList: string[],
     isPlacemarkLoaded: boolean,
 ) => `
     <div style="width: 230px">
@@ -79,8 +77,8 @@ const renderBalloonContent = (
 
 const YandexMap: React.FC<ModelsUI.IYandexMapProps> = ({
     name,
+    category,
     description,
-    metroList,
     address,
     rating,
     imagesList,
@@ -150,10 +148,8 @@ const YandexMap: React.FC<ModelsUI.IYandexMapProps> = ({
                             balloonContentBody: renderBalloonContent(
                                 name,
                                 address,
-                                description,
                                 rating,
                                 imagesList,
-                                metroList,
                                 isPlacemarkLoaded,
                             ),
                         }}
@@ -189,14 +185,22 @@ const YandexMap: React.FC<ModelsUI.IYandexMapProps> = ({
                                 )}
                             </div>
                         </div>
+
                         <div>
-                            <div className={style.info__title}>Средний чек</div>
-                            <div className={style.info__text}>{averageCheck} ₽</div>
+                            <div className={style.info__title}>
+                                {category === 'Parks' ? 'Стоимость входа' : 'Средний чек'}
+                            </div>
+                            <div className={style.info__text}>
+                                {averageCheck === 0 ? 'бесплатно' : `${averageCheck} ₽`}
+                            </div>
                         </div>
-                        <div>
-                            <div className={style.info__title}>Кухня</div>
-                            <div className={style.info__text}>{kitchenList.join(', ')}</div>
-                        </div>
+
+                        {category !== 'Parks' ? (
+                            <div>
+                                <div className={style.info__title}>Кухня</div>
+                                <div className={style.info__text}>{kitchenList.join(', ')}</div>
+                            </div>
+                        ) : null}
 
                         {phoneNumber.trim().length > 1 ? (
                             <div>
@@ -212,7 +216,7 @@ const YandexMap: React.FC<ModelsUI.IYandexMapProps> = ({
                         ) : null}
                     </div>
                 </div>
-                <div style={{ marginTop: '30px' }}>{description}</div>
+                <div className={style.info__description}>{description}</div>
             </Modal>
         </React.Fragment>
     )

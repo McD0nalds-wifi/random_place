@@ -1,6 +1,8 @@
+import { AxiosResponse } from 'axios'
+
 import { ModelsRedux, ModelsUI } from 'types'
 
-export const isDevMode = false // TODO
+export const isDevMode = true // TODO
 
 export const districtList: ModelsRedux.IDistrictItem[] = [
     { id: 1, title: 'Адмиралтейский', isChecked: true },
@@ -101,3 +103,19 @@ export const metroList: string[] = [
     'Бухарестская',
     'Международная',
 ]
+
+export const axiosSuccessResponseMock: AxiosResponse = {
+    data: null,
+    status: 200,
+    statusText: '',
+    headers: null,
+    config: {},
+}
+
+export const axiosSuccessFailureMock: AxiosResponse = {
+    data: null,
+    status: 400,
+    statusText: '',
+    headers: null,
+    config: {},
+}

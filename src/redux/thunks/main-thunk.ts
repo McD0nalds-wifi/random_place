@@ -1,11 +1,13 @@
 import { AxiosResponse } from 'axios'
 import { toast } from 'react-toastify'
 
-import { ModelsRedux } from 'types'
+import { ModelsRedux, EnumsRedux } from 'types'
 
 import mainReducer, { MainThunkType } from '../reducers/main-reducer'
+import * as mainMock from '../mocks/main-mock'
 
 import * as util from '../../common/util'
+import * as constants from '../../common/constants'
 import { API } from '../../api/api'
 
 /* START - Main additional imports and module code. */
@@ -13,10 +15,10 @@ import { API } from '../../api/api'
 /**
  * Thunk add new category
  *
- * @param {string} category new category
+ * @param {EnumsRedux.CategoryCyrillicType} category new category
  */
 export const performInputAddCategoryItem =
-    (category: string): MainThunkType =>
+    (category: EnumsRedux.CategoryCyrillicType): MainThunkType =>
     (dispatch) => {
         /* START - thunk performInputAddCategoryItem before execute code. */
         /* END - thunk performInputAddCategoryItem before execute code. */
@@ -275,6 +277,7 @@ export const callPostRandomPlace = (): MainThunkType => async (dispatch, getStat
 
                 dispatch(mainReducer.actions.performSetRandomPlacePhase('Failure'))
             },
+            constants.isDevMode ? mainMock.callPostRandomPlaceMock(reducerState) : undefined,
         )
     }
 

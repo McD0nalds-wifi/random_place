@@ -25,7 +25,7 @@ export interface IRandomPlaceRequest {
 
 export interface IRandomPlaceResponse {
     id: number
-    category: string
+    category: Enums.CategoryType
     name: string
     description: string
     metroList: string[]

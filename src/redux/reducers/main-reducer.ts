@@ -12,7 +12,7 @@ const mainReducer = createSlice({
     name: 'main',
     initialState: mainState,
     reducers: {
-        performInputAddCategoryItem(state, action: PayloadAction<string>) {
+        performInputAddCategoryItem(state, action: PayloadAction<EnumsRedux.CategoryCyrillicType>) {
             state.currentCategoryList.push(action.payload)
         },
         performInputDeleteCategoryItem(state, action: PayloadAction<number>) {

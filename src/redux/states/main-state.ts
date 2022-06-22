@@ -4,7 +4,7 @@ import { ModelsRedux, EnumsRedux } from 'types'
 import * as constants from '../../common/constants'
 
 export const mainState = {
-    currentCategoryList: ['Кафе'] as string[],
+    currentCategoryList: ['Кафе'] as EnumsRedux.CategoryCyrillicType[],
     districtList: constants.districtList as ModelsRedux.IDistrictItem[],
     isAllDistrictsChecked: true as boolean,
     rangeMinValue: 0 as number,

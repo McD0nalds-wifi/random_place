@@ -164,6 +164,7 @@ const Main: React.FC = () => {
                     reducerState.randomPlaceData ? (
                         <YandexMap
                             name={reducerState.randomPlaceData.name}
+                            category={reducerState.randomPlaceData.category}
                             description={reducerState.randomPlaceData.description}
                             metroList={reducerState.randomPlaceData.metroList}
                             address={reducerState.randomPlaceData.address}

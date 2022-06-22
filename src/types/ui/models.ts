@@ -1,3 +1,5 @@
+import { EnumsRedux, ModelsRedux } from 'types'
+
 import * as Enums from './enums'
 
 export interface IButtonProps {
@@ -21,7 +23,7 @@ export interface IButtonGroupProps {
 
 export interface IButtonGroupItem {
     id: string
-    title: string
+    title: EnumsRedux.CategoryCyrillicType
     isActive: boolean
     icon: Enums.IconType
 }
@@ -52,6 +54,7 @@ export interface ILoaderProps {
 
 export interface IYandexMapProps {
     name: string
+    category: EnumsRedux.CategoryType
     description: string
     metroList: string[]
     address: string
