@@ -4,8 +4,6 @@ import { shallowEqual } from 'react-redux'
 
 import style from './Profile.module.scss'
 
-import { EnumsView } from 'types'
-
 import { Button } from 'components-ui'
 
 import * as authorizationThunk from '../../redux/thunks/authorization-thunk'
@@ -26,9 +24,31 @@ const Profile: React.FC = () => {
     const navigate = useNavigate()
     /* END - Tracking side-effects. */
 
-    /* START - View Authorization content. */
+    /* START - View Profile content. */
+    const handleCreatePlaceClick = () => {
+        navigate('/placeRedactor')
+    }
 
-    return <div>Profile</div>
+    return (
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '20px',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '70vh',
+            }}
+        >
+            <h2>Данная страница находиться в разработке</h2>
+
+            {reducerState.userData && reducerState.userData.role === 'ADMIN' ? (
+                <Button type={'Primary'} size={'Medium'} onClick={handleCreatePlaceClick}>
+                    Создать место
+                </Button>
+            ) : null}
+        </div>
+    )
 }
 
 export default Profile

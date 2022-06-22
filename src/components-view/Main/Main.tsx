@@ -124,6 +124,22 @@ const Main: React.FC = () => {
 
     /* START - Tracking side-effects. */
     const dispatch = useTypedDispatch()
+
+    const [mapHeight, setMapHeight] = React.useState(
+        window.innerWidth > 576 ? window.innerHeight - 130 : window.innerHeight - 87,
+    )
+
+    const handleWindowSizeChange = () => {
+        setMapHeight(window.innerWidth > 576 ? window.innerHeight - 130 : window.innerHeight - 87)
+    }
+
+    React.useEffect(() => {
+        window.addEventListener('resize', handleWindowSizeChange)
+
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange)
+        }
+    }, [])
     /* END - Tracking side-effects. */
 
     /* START - View Main content. */
@@ -133,8 +149,6 @@ const Main: React.FC = () => {
 
     return (
         <div>
-            <div className={style.divider} />
-
             <div className={style.container}>
                 <div className={style.menu}>
                     {renderMenuContent(reducerState, dispatch)}
@@ -145,11 +159,7 @@ const Main: React.FC = () => {
                         </Button>
                     </div>
                 </div>
-                <div
-                    className={style.map}
-                    // TODO
-                    style={{ height: window.innerWidth > 576 ? window.innerHeight - 130 : window.innerHeight - 87 }}
-                >
+                <div className={style.map} style={{ height: mapHeight }}>
                     {(reducerState.randomPlacePhase === 'Success' || reducerState.randomPlacePhase === 'InProgress') &&
                     reducerState.randomPlaceData ? (
                         <YandexMap

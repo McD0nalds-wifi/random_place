@@ -101,72 +101,121 @@ export const performInputDistrictChecked =
 /**
  * Place data request
  */
-export const callPostAddPlace = (): MainThunkType => async (dispatch, getState) => {
-    /* START - thunk callPostAddPlace before execute code. */
-    if (!util.checkInternetConnected()) {
-        toast('При загрузке данных произошла ошибка. Проверьте ваше подключение к сети', {
-            position: 'top-center',
-            theme: 'colored',
-            type: 'error',
-        })
-        return
-    }
-    /* END - thunk callPostAddPlace before execute code. */
-    const reducerState = getState().main
+export const callPostAddPlace =
+    (request: ModelsRedux.IAddPlaceRequest, image: File): MainThunkType =>
+    async (dispatch, getState) => {
+        /* START - thunk callPostAddPlace before execute code. */
+        if (!util.checkInternetConnected()) {
+            toast('При загрузке данных произошла ошибка. Проверьте ваше подключение к сети', {
+                position: 'top-center',
+                theme: 'colored',
+                type: 'error',
+            })
+            return
+        }
+        /* END - thunk callPostAddPlace before execute code. */
+        const reducerState = getState().main
 
-    if (reducerState.addPlacePhase !== 'InProgress') {
-        dispatch(mainReducer.actions.performSetAddPlacePhase('InProgress'))
-        dispatch(mainReducer.actions.performSetAddPlaceError(null))
+        if (reducerState.addPlacePhase !== 'InProgress') {
+            dispatch(mainReducer.actions.performSetAddPlacePhase('InProgress'))
+            dispatch(mainReducer.actions.performSetAddPlaceError(null))
 
-        const requestData: ModelsRedux.IAddPlaceRequest = {
-            category: 'Cafe',
-            name: 'Deep Space',
-            description: '',
-            metroList: ['Обводный канал'],
-            address: 'Лиговский пр. 271',
-            rating: 8,
-            district: 'Фрунзенский',
-            imagesList: [],
-            latitude: 59.905357,
-            longitude: 30.342404,
-            averageCheck: 270,
-            workingHoursList: ['Пн-Пт: 08:00 - 20:00', 'Сб-Вс: 09:00 - 20:00'],
-            phoneNumber: '+7 (921) 924-72-77',
-            kitchenList: ['европейская'],
+            const requestData: ModelsRedux.IAddPlaceRequest = request
+
+            API.apiPost<ModelsRedux.IAddPlaceRequest, ModelsRedux.IAddPlaceResponse>(
+                'api/place/add',
+                requestData,
+                (response: AxiosResponse<ModelsRedux.IAddPlaceResponse>) => {
+                    dispatch(mainReducer.actions.performSetAddPlaceData(response.data))
+                    dispatch(mainReducer.actions.performSetAddPlacePhase('Success'))
+
+                    dispatch(callPostAddPlaceImage(image))
+                },
+                (error: AxiosResponse<ModelsRedux.IServerError> | undefined) => {
+                    if (error) {
+                        dispatch(
+                            mainReducer.actions.performSetAddPlaceError({
+                                message: error.data.message,
+                                code: error.status,
+                            }),
+                        )
+                    } else {
+                        dispatch(
+                            mainReducer.actions.performSetAddPlaceError({
+                                message: 'Произошла непредвиденная ошибка',
+                                code: 500,
+                            }),
+                        )
+                    }
+
+                    dispatch(mainReducer.actions.performSetAddPlacePhase('Failure'))
+                },
+            )
         }
 
-        API.apiPost<ModelsRedux.IAddPlaceRequest, ModelsRedux.IAddPlaceResponse>(
-            'api/place/add',
-            requestData,
-            (response: AxiosResponse<ModelsRedux.IAddPlaceResponse>) => {
-                dispatch(mainReducer.actions.performSetAddPlaceData(response.data))
-                dispatch(mainReducer.actions.performSetAddPlacePhase('Success'))
-            },
-            (error: AxiosResponse<ModelsRedux.IServerError> | undefined) => {
-                if (error) {
-                    dispatch(
-                        mainReducer.actions.performSetAddPlaceError({
-                            message: error.data.message,
-                            code: error.status,
-                        }),
-                    )
-                } else {
-                    dispatch(
-                        mainReducer.actions.performSetAddPlaceError({
-                            message: 'Произошла непредвиденная ошибка',
-                            code: 500,
-                        }),
-                    )
-                }
-
-                dispatch(mainReducer.actions.performSetAddPlacePhase('Failure'))
-            },
-        )
+        /* START - thunk callPostAddPlace after execute code. */
+        /* END - thunk callPostAddPlace after execute code. */
     }
 
-    /* START - thunk callPostAddPlace after execute code. */
-    /* END - thunk callPostAddPlace after execute code. */
-}
+/**
+ * Place data request
+ */
+export const callPostAddPlaceImage =
+    (image: File): MainThunkType =>
+    async (dispatch, getState) => {
+        /* START - thunk callPostAddPlaceImage before execute code. */
+        if (!util.checkInternetConnected()) {
+            toast('При загрузке данных произошла ошибка. Проверьте ваше подключение к сети', {
+                position: 'top-center',
+                theme: 'colored',
+                type: 'error',
+            })
+            return
+        }
+        /* END - thunk callPostAddPlaceImage before execute code. */
+        const reducerState = getState().main
+
+        if (reducerState.addPlaceImagePhase !== 'InProgress') {
+            dispatch(mainReducer.actions.performSetAddPlaceImagePhase('InProgress'))
+            dispatch(mainReducer.actions.performSetAddPlaceImageError(null))
+
+            const requestData = new FormData()
+
+            requestData.append('id', reducerState.addPlaceData ? String(reducerState.addPlaceData.id) : '0')
+            requestData.append('image', image)
+
+            API.apiPost<FormData, ModelsRedux.IAddPlaceResponse>(
+                'api/place/addImage',
+                requestData,
+                (response: AxiosResponse<ModelsRedux.IAddPlaceResponse>) => {
+                    dispatch(mainReducer.actions.performSetAddPlaceImageData(response.data))
+                    dispatch(mainReducer.actions.performSetAddPlaceImagePhase('Success'))
+                },
+                (error: AxiosResponse<ModelsRedux.IServerError> | undefined) => {
+                    if (error) {
+                        dispatch(
+                            mainReducer.actions.performSetAddPlaceImageError({
+                                message: error.data.message,
+                                code: error.status,
+                            }),
+                        )
+                    } else {
+                        dispatch(
+                            mainReducer.actions.performSetAddPlaceImageError({
+                                message: 'Произошла непредвиденная ошибка',
+                                code: 500,
+                            }),
+                        )
+                    }
+
+                    dispatch(mainReducer.actions.performSetAddPlaceImagePhase('Failure'))
+                },
+            )
+        }
+
+        /* START - thunk callPostAddPlaceImage after execute code. */
+        /* END - thunk callPostAddPlaceImage after execute code. */
+    }
 
 /**
  * Place data request

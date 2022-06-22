@@ -121,7 +121,7 @@ const config: Configuration = {
                 use: cssLoaders(true, true),
             },
             {
-                test: /\.(png|jpg|svg|gif)$/i,
+                test: /\.(png|jpg|svg|gif|mp4)$/i,
                 use: {
                     loader: 'file-loader',
                     options: {

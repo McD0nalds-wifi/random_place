@@ -9,7 +9,17 @@ const API = {
         data: D,
         success: (response: AxiosResponse<R>) => void,
         failure: (response: AxiosResponse<ModelsRedux.IServerError> | undefined) => void,
+        mock?: (
+            success: (response: AxiosResponse<R>) => void,
+            failure: (response: AxiosResponse<ModelsRedux.IServerError> | undefined) => void,
+        ) => void,
     ) => {
+        if (mock) {
+            mock(success, failure)
+
+            return
+        }
+
         const apiData: string[] = []
 
         for (const key in data) {
@@ -30,7 +40,17 @@ const API = {
         data: D,
         success: (response: AxiosResponse<R>) => void,
         failure: (response: AxiosResponse<ModelsRedux.IServerError> | undefined) => void,
+        mock?: (
+            success: (response: AxiosResponse<R>) => void,
+            failure: (response: AxiosResponse<ModelsRedux.IServerError> | undefined) => void,
+        ) => void,
     ) => {
+        if (mock) {
+            mock(success, failure)
+
+            return
+        }
+
         return $host
             .post(url, data ? data : undefined)
             .then((res: AxiosResponse<R>) => success(res))
@@ -44,7 +64,17 @@ const API_HOST = {
         data: D,
         success: (response: AxiosResponse<R>) => void,
         failure: (response: AxiosResponse<ModelsRedux.IServerError> | undefined) => void,
+        mock?: (
+            success: (response: AxiosResponse<R>) => void,
+            failure: (response: AxiosResponse<ModelsRedux.IServerError> | undefined) => void,
+        ) => void,
     ) => {
+        if (mock) {
+            mock(success, failure)
+
+            return
+        }
+
         const apiData: string[] = []
 
         for (const key in data) {
@@ -61,7 +91,17 @@ const API_HOST = {
         data: D,
         success: (response: AxiosResponse<R>) => void,
         failure: (response: AxiosResponse<ModelsRedux.IServerError> | undefined) => void,
+        mock?: (
+            success: (response: AxiosResponse<R>) => void,
+            failure: (response: AxiosResponse<ModelsRedux.IServerError> | undefined) => void,
+        ) => void,
     ) => {
+        if (mock) {
+            mock(success, failure)
+
+            return
+        }
+
         return $authHost
             .post(url, data ? data : undefined)
             .then((res: AxiosResponse<R>) => success(res))
@@ -72,7 +112,17 @@ const API_HOST = {
         data: D,
         success: (response: AxiosResponse<R>) => void,
         failure: (response: AxiosResponse<ModelsRedux.IServerError> | undefined) => void,
+        mock?: (
+            success: (response: AxiosResponse<R>) => void,
+            failure: (response: AxiosResponse<ModelsRedux.IServerError> | undefined) => void,
+        ) => void,
     ) => {
+        if (mock) {
+            mock(success, failure)
+
+            return
+        }
+
         return $authHost
             .put(url, data ? data : undefined)
             .then((res: AxiosResponse<R>) => success(res))

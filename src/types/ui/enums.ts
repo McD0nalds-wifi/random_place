@@ -20,5 +20,8 @@ export type IconType =
     | 'Email'
     | 'Avatar'
     | 'Logout'
+    | 'Back'
+    | 'ArrowTop'
+    | 'ArrowBottom'
 
 export type InputType = 'Default' | 'Password'

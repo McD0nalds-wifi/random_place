@@ -67,3 +67,17 @@
     cursor: pointer;
     filter: invert(82%) sepia(12%) saturate(104%) hue-rotate(2deg) brightness(95%) contrast(89%);
 }
+
+.back {
+    height: 24px;
+    cursor: pointer;
+}
+
+.arrowtop {
+    height: 18px;
+    transform: rotate(180deg);
+}
+
+.arrowbottom {
+    height: 18px;
+}

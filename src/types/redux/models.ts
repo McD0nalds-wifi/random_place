@@ -53,7 +53,6 @@ export interface IAddPlaceRequest {
     address: string
     rating: number
     district: string
-    imagesList: string[]
     latitude: number
     longitude: number
     averageCheck: number

@@ -7,7 +7,7 @@ import { Provider } from 'react-redux'
 import './styles/base.scss'
 import 'react-toastify/dist/ReactToastify.css'
 
-import { Activate, Authorization, Header, Main, Profile } from 'components-view'
+import { Activate, Authorization, Header, Main, PlaceRedactor, Profile } from 'components-view'
 
 /* START - View App additional imports and module code. */
 import store from './redux/redux-store'
@@ -35,6 +35,15 @@ const Routers: React.FC = () => {
                 element={
                     <RequireAuth>
                         <Profile />
+                    </RequireAuth>
+                }
+            />
+
+            <Route
+                path={'/placeRedactor'}
+                element={
+                    <RequireAuth>
+                        <PlaceRedactor />
                     </RequireAuth>
                 }
             />

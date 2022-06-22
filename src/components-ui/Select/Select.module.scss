@@ -1,0 +1,146 @@
+.wrapper {
+    position: relative;
+    width: fit-content;
+}
+
+.label {
+    margin-bottom: 4px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.placeholder {
+    font-size: 14px;
+    position: absolute;
+    top: 8px;
+    color: $gray;
+    left: 12px;
+    pointer-events: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.icon {
+    position: absolute;
+    right: 13px;
+    pointer-events: none;
+}
+
+.input {
+    min-width: 209px;
+    border-radius: 8px;
+    border: 2px solid $gray;
+    background-color: $white;
+    outline: none;
+    height: 36px;
+    transition: 0.2s;
+    box-sizing: border-box;
+    padding-left: 12px;
+    text-align: left;
+    color: $black;
+    cursor: pointer;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+    &:hover {
+        border-color: $darkGray;
+    }
+
+    &:focus {
+        border-color: $darkGray;
+    }
+
+    &:disabled {
+        background-color: $gray;
+        cursor: not-allowed;
+    }
+
+    &:disabled:hover {
+        border-color: $gray;
+    }
+
+    &:disabled:focus {
+        border-color: $gray;
+    }
+}
+
+.input_error {
+    border: 1px solid $cherryRed2;
+
+    &:hover {
+        border-color: $cherryRed2;
+    }
+
+    &:focus {
+        border-color: $cherryRed2;
+    }
+}
+
+.dropdown {
+    @extend .CustomScrollbar;
+
+    box-shadow: 0px 2px 7px 0px rgba(31, 31, 34, 0.25);
+    border-radius: 8px;
+    padding: 10px 12px;
+    transition: 0.2s;
+    position: absolute;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    background-color: $white;
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 4px;
+    overflow: auto;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dropdown_open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.dropdown__item {
+    transition: 0.2s;
+    padding: 6px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dropdown__title {
+    font-size: 14px;
+    line-height: 16px;
+    color: $darkGray;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.dropdown__item_hover {
+    background-color: $gray;
+}
+
+.dropdown__item_active {
+    background-color: $gray;
+}
+
+.errorMessage {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.errorMessage__title {
+    font-size: 12px;
+    line-height: 16px;
+    color: $cherryRed2;
+}

@@ -20,6 +20,8 @@ import closeEyeImage from '../../assets/close_eye.svg'
 import emailImage from '../../assets/email.svg'
 import avatarImage from '../../assets/avatar.png'
 import logoutImage from '../../assets/logout.svg'
+import backImage from '../../assets/back.svg'
+import arrowImage from '../../assets/arrow.svg'
 
 const getIcon = (type: EnumsUI.IconType): string => {
     switch (type) {
@@ -53,6 +55,12 @@ const getIcon = (type: EnumsUI.IconType): string => {
             return avatarImage
         case 'Logout':
             return logoutImage
+        case 'Back':
+            return backImage
+        case 'ArrowTop':
+            return arrowImage
+        case 'ArrowBottom':
+            return arrowImage
         default:
             return ''
     }

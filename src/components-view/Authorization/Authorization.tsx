@@ -1,10 +1,10 @@
 import React from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { shallowEqual } from 'react-redux'
 
 import style from './Authorization.module.scss'
 
-import { EnumsView } from 'types'
+import { ModelsView, EnumsView } from 'types'
 
 import { Button, Input, Loader } from 'components-ui'
 
@@ -25,20 +25,23 @@ const Authorization: React.FC = () => {
     const dispatch = useTypedDispatch()
 
     const navigate = useNavigate()
-    // const location = useLocation() TODO
+    const location = useLocation()
     const { page } = useParams<{ page: EnumsView.AuthorizationPageType }>()
 
     React.useEffect(() => {
-        if (reducerState.userData && reducerState.userData.isActivated) {
-            navigate('/profile')
+        if (
+            (reducerState.loginPhase === 'Success' || reducerState.checkAuthPhase === 'Success') &&
+            reducerState.userData &&
+            reducerState.userData.isActivated
+        ) {
+            if (location.state) {
+                const locationState = location.state as ModelsView.ILocationState
+                navigate(locationState.from.pathname)
+            } else {
+                navigate('/profile')
+            }
         }
-    }, [])
-
-    React.useEffect(() => {
-        if (reducerState.loginPhase === 'Success' && reducerState.userData && reducerState.userData.isActivated) {
-            navigate('/profile')
-        }
-    }, [reducerState.loginPhase])
+    }, [reducerState.loginPhase, reducerState.checkAuthPhase])
     /* END - Tracking side-effects. */
 
     /* START - View Authorization content. */

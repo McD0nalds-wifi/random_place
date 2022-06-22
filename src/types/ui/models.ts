@@ -88,3 +88,18 @@ export interface IInputProps {
     onChange: (value: string) => void
     onBlur?: (value: string) => void
 }
+
+export interface ISelectProps {
+    value: string | null
+    itemList: string[]
+    placeholder?: string
+    label?: string
+    errorMessage?: string
+    isDisabled?: boolean
+    numberOfLines?: number
+    onChange: (value: string) => void
+}
+
+export interface IInputFileProps {
+    onChange: (file: File) => void
+}

@@ -40,6 +40,15 @@ const mainReducer = createSlice({
         performSetAddPlaceError(state, action: PayloadAction<ModelsRedux.IError | null>) {
             state.addPlaceError = action.payload
         },
+        performSetAddPlaceImageData(state, action: PayloadAction<ModelsRedux.IAddPlaceResponse | null>) {
+            state.addPlaceImageData = action.payload
+        },
+        performSetAddPlaceImagePhase(state, action: PayloadAction<EnumsRedux.ThunkChainPhase>) {
+            state.addPlaceImagePhase = action.payload
+        },
+        performSetAddPlaceImageError(state, action: PayloadAction<ModelsRedux.IError | null>) {
+            state.addPlaceImageError = action.payload
+        },
         performSetRandomPlaceData(state, action: PayloadAction<ModelsRedux.IRandomPlaceData | null>) {
             state.randomPlaceData = action.payload
         },
