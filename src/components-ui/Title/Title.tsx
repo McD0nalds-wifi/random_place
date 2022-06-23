@@ -22,4 +22,4 @@ const Title: React.FC<ModelsUI.ITitleProps> = ({ level, children }) => {
     }
 }
 
-export default Title
+export default React.memo(Title)

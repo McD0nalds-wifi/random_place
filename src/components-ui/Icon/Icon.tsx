@@ -5,16 +5,16 @@ import style from './Icon.module.scss'
 import { ModelsUI, EnumsUI } from 'types'
 
 /* START - Icon additional imports and module code. */
-import bowlImage from '../../assets/bowl.png'
-import coffeeImage from '../../assets/coffee.png'
-import treeImage from '../../assets/tree.png'
-import tropicalDrinkImage from '../../assets/tropical_drink.png'
+import foodImage from '../../assets/food.svg'
+import coffeeImage from '../../assets/coffee.svg'
+import treeImage from '../../assets/tree.svg'
+import barImage from '../../assets/bar.svg'
 import checkImage from '../../assets/check.svg'
 import rateImage from '../../assets/rate.svg'
 import loaderImage from '../../assets/loader.svg'
 import mapImage from '../../assets/map.png'
 import errorImage from '../../assets/error.png'
-import sadImage from '../../assets/sad.png'
+import smileImage from '../../assets/smile.svg'
 import openEyeImage from '../../assets/open_eye.svg'
 import closeEyeImage from '../../assets/close_eye.svg'
 import emailImage from '../../assets/email.svg'
@@ -25,14 +25,18 @@ import arrowImage from '../../assets/arrow.svg'
 
 const getIcon = (type: EnumsUI.IconType): string => {
     switch (type) {
-        case 'Bowl':
-            return bowlImage
-        case 'Coffee':
+        case 'FoodLight':
+        case 'FoodDark':
+            return foodImage
+        case 'CoffeeLight':
+        case 'CoffeeDark':
             return coffeeImage
-        case 'Tree':
+        case 'TreeLight':
+        case 'TreeDark':
             return treeImage
-        case 'TropicalDrink':
-            return tropicalDrinkImage
+        case 'BarLight':
+        case 'BarDark':
+            return barImage
         case 'Check':
             return checkImage
         case 'Rate':
@@ -43,8 +47,8 @@ const getIcon = (type: EnumsUI.IconType): string => {
             return mapImage
         case 'Error':
             return errorImage
-        case 'Sad':
-            return sadImage
+        case 'Smile':
+            return smileImage
         case 'OpenEye':
             return openEyeImage
         case 'CloseEye':

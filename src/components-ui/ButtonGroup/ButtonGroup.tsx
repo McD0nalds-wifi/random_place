@@ -37,7 +37,7 @@ const ButtonGroup: React.FC<ModelsUI.IButtonGroupProps> = ({ itemsList, onChange
                         key={`ButtonItem-${buttonItem.id}`}
                         type={buttonItem.isActive ? 'Primary' : 'Secondary'}
                         size={'Small'}
-                        icon={buttonItem.icon}
+                        icon={buttonItem.isActive ? buttonItem.iconActive : buttonItem.iconDefault}
                         onClick={() => handleButtonClick(buttonItem.id)}
                     >
                         {buttonItem.title}
@@ -48,4 +48,4 @@ const ButtonGroup: React.FC<ModelsUI.IButtonGroupProps> = ({ itemsList, onChange
     )
 }
 
-export default ButtonGroup
+export default React.memo(ButtonGroup)

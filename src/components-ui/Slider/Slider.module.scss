@@ -1,7 +1,9 @@
+@import '../../styles/index.scss';
+
 .slider {
     height: 3px;
     border-radius: 3px;
-    background-color: $gray;
+    background-color: $lightGray;
     position: relative;
 }
 

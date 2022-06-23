@@ -1,17 +1,39 @@
-.bowl {
+@import '../../styles/index.scss';
+
+.foodlight {
     height: 28px;
 }
 
-.coffee {
+.fooddark {
+    height: 28px;
+    filter: invert(90%) sepia(68%) saturate(0%) hue-rotate(169deg) brightness(95%) contrast(90%);
+}
+
+.coffeelight {
     height: 28px;
 }
 
-.tree {
+.coffeedark {
+    height: 28px;
+    filter: invert(90%) sepia(68%) saturate(0%) hue-rotate(169deg) brightness(95%) contrast(90%);
+}
+
+.treelight {
     height: 28px;
 }
 
-.tropicaldrink {
+.treedark {
     height: 28px;
+    filter: invert(90%) sepia(68%) saturate(0%) hue-rotate(169deg) brightness(95%) contrast(90%);
+}
+
+.barlight {
+    height: 28px;
+}
+
+.bardark {
+    height: 28px;
+    filter: invert(90%) sepia(68%) saturate(0%) hue-rotate(169deg) brightness(95%) contrast(90%);
 }
 
 .check {
@@ -31,7 +53,7 @@
     height: 130px;
 }
 
-.sad {
+.smile {
     height: 130px;
 }
 

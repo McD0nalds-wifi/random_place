@@ -82,4 +82,4 @@ const Slider: React.FC<ModelsUI.ISliderProps> = ({
     )
 }
 
-export default Slider
+export default React.memo(Slider)

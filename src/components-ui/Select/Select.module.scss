@@ -1,3 +1,5 @@
+@import '../../styles/index.scss';
+
 .wrapper {
     position: relative;
     width: fit-content;
@@ -13,7 +15,7 @@
     font-size: 14px;
     position: absolute;
     top: 8px;
-    color: $gray;
+    color: $lightGray;
     left: 12px;
     pointer-events: none;
     text-overflow: ellipsis;
@@ -30,7 +32,7 @@
 .input {
     min-width: 209px;
     border-radius: 8px;
-    border: 2px solid $gray;
+    border: 2px solid $lightGray;
     background-color: $white;
     outline: none;
     height: 36px;
@@ -54,28 +56,28 @@
     }
 
     &:disabled {
-        background-color: $gray;
+        background-color: $lightGray;
         cursor: not-allowed;
     }
 
     &:disabled:hover {
-        border-color: $gray;
+        border-color: $lightGray;
     }
 
     &:disabled:focus {
-        border-color: $gray;
+        border-color: $lightGray;
     }
 }
 
 .input_error {
-    border: 1px solid $cherryRed2;
+    border: 1px solid $darkRed;
 
     &:hover {
-        border-color: $cherryRed2;
+        border-color: $darkRed;
     }
 
     &:focus {
-        border-color: $cherryRed2;
+        border-color: $darkRed;
     }
 }
 
@@ -125,11 +127,11 @@
 }
 
 .dropdown__item_hover {
-    background-color: $gray;
+    background-color: $lightGray;
 }
 
 .dropdown__item_active {
-    background-color: $gray;
+    background-color: $lightGray;
 }
 
 .errorMessage {
@@ -142,5 +144,5 @@
 .errorMessage__title {
     font-size: 12px;
     line-height: 16px;
-    color: $cherryRed2;
+    color: $darkRed;
 }

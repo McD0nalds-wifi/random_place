@@ -1,3 +1,5 @@
+@import '../../styles/index.scss';
+
 @mixin closeIcon {
     position: absolute;
     right: 32px;
@@ -60,7 +62,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 30px;
-            border-bottom: 1px solid $gray;
+            border-bottom: 1px solid $lightGray;
 
             .header_title {
                 font-size: 24px;

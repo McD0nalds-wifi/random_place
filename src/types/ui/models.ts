@@ -25,7 +25,8 @@ export interface IButtonGroupItem {
     id: string
     title: EnumsRedux.CategoryCyrillicType
     isActive: boolean
-    icon: Enums.IconType
+    iconActive: Enums.IconType
+    iconDefault: Enums.IconType
 }
 
 export interface IIconProps {

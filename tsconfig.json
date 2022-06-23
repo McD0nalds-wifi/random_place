@@ -18,7 +18,8 @@
             "components-ui": ["./src/components-ui/index"],
             "components-view": ["./src/components-view/index"],
             "types": ["./src/types/index"]
-        }
+        },
+        "baseUrl": "."
     },
     "include": ["src", "declaration.d.ts"]
 }

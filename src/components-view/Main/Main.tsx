@@ -18,7 +18,9 @@ import * as constants from '../../common/constants'
 
 import { MainStateType } from '../../redux/reducers/main-reducer'
 
-const renderMenuContent = (reducerState: MainStateType, dispatch: Dispatch<any>) => {
+const MenuContent: React.FC<MainStateType> = (reducerState) => {
+    const dispatch = useTypedDispatch()
+
     const blurredBackgroundTopRef = React.useRef<HTMLDivElement | null>(null)
     const blurredBackgroundBottomRef = React.useRef<HTMLDivElement | null>(null)
 
@@ -47,21 +49,21 @@ const renderMenuContent = (reducerState: MainStateType, dispatch: Dispatch<any>)
         }
     }
 
-    const handleAllDistrictsChange = () => {
+    const handleAllDistrictsChange = React.useCallback(() => {
         dispatch(mainThunk.performInputAllDistrictsChecked())
-    }
+    }, [])
 
-    const handleDistrictChange = (districtItemId: number) => {
+    const handleDistrictChange = React.useCallback((districtItemId: number) => {
         dispatch(mainThunk.performInputDistrictChecked(districtItemId))
-    }
+    }, [])
 
-    const handleRangeMinValueChange = (value: number) => {
+    const handleRangeMinValueChange = React.useCallback((value: number) => {
         dispatch(mainThunk.performInputRangeMinValueChange(value))
-    }
+    }, [])
 
-    const handleRangeMaxValueChange = (value: number) => {
+    const handleRangeMaxValueChange = React.useCallback((value: number) => {
         dispatch(mainThunk.performInputRangeMaxValueChange(value))
-    }
+    }, [])
 
     return (
         <React.Fragment>
@@ -151,7 +153,7 @@ const Main: React.FC = () => {
         <div>
             <div className={style.container}>
                 <div className={style.menu}>
-                    {renderMenuContent(reducerState, dispatch)}
+                    <MenuContent {...reducerState} />
 
                     <div className={style.menu__button}>
                         <Button type={'Primary'} size={'Medium'} onClick={handleSearchPlaceClick}>
@@ -179,7 +181,7 @@ const Main: React.FC = () => {
                         />
                     ) : reducerState.randomPlacePhase === 'Success' && !reducerState.randomPlaceData ? (
                         <div className={style.emptyMap}>
-                            <Icon type={'Sad'} />
+                            <Icon type={'Smile'} />
 
                             <div className={style.emptyMap__title}>К сожалению по вашему запросу ничего не найдено</div>
                         </div>
@@ -206,7 +208,7 @@ const Main: React.FC = () => {
                         </Button>
                     </div>
 
-                    {renderMenuContent(reducerState, dispatch)}
+                    <MenuContent {...reducerState} />
                 </SliderMenu>
             </div>
 

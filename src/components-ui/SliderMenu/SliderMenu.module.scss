@@ -1,3 +1,5 @@
+@import '../../styles/index.scss';
+
 .container {
     @extend .CustomScrollbar;
 
@@ -22,7 +24,7 @@
 .line {
     width: 100px;
     height: 5px;
-    background-color: $gray;
+    background-color: $lightGray;
     border-radius: 50px;
 }
 

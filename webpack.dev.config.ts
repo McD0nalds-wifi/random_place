@@ -60,12 +60,12 @@ const cssLoaders = (isScss: boolean, isModule: boolean) => {
                 implementation: require('sass'),
             },
         })
-        loaders.push({
-            loader: 'sass-resources-loader',
-            options: {
-                resources: [path.resolve(__dirname, 'src/styles/index.scss')],
-            },
-        })
+        // loaders.push({
+        //     loader: 'sass-resources-loader',
+        //     options: {
+        //         resources: [path.resolve(__dirname, 'src/styles/index.scss')],
+        //     },
+        // })
     }
 
     return loaders

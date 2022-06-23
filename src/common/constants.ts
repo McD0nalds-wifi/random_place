@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios'
 
 import { ModelsRedux, ModelsUI } from 'types'
 
-export const isDevMode = true // TODO
+export const isDevMode = false // TODO
 
 export const districtList: ModelsRedux.IDistrictItem[] = [
     { id: 1, title: 'Адмиралтейский', isChecked: true },
@@ -26,10 +26,10 @@ export const districtList: ModelsRedux.IDistrictItem[] = [
 ]
 
 export const categoryItemsList: ModelsUI.IButtonGroupItem[] = [
-    { id: '1', title: 'Кафе', isActive: true, icon: 'Coffee' },
-    { id: '2', title: 'Бары', isActive: false, icon: 'TropicalDrink' },
-    { id: '3', title: 'Рестораны', isActive: false, icon: 'Bowl' },
-    { id: '4', title: 'Парки', isActive: false, icon: 'Tree' },
+    { id: '1', title: 'Кафе', isActive: true, iconActive: 'CoffeeLight', iconDefault: 'CoffeeDark' },
+    { id: '2', title: 'Бары', isActive: false, iconActive: 'BarLight', iconDefault: 'BarDark' },
+    { id: '3', title: 'Рестораны', isActive: false, iconActive: 'FoodLight', iconDefault: 'FoodDark' },
+    { id: '4', title: 'Парки', isActive: false, iconActive: 'TreeLight', iconDefault: 'TreeDark' },
 ]
 
 export const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
