@@ -6,8 +6,8 @@ import ESLintPlugin from 'eslint-webpack-plugin'
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 interface Configuration extends WebpackConfiguration {
     devServer?: WebpackDevServerConfiguration
@@ -41,7 +41,7 @@ const plugins = () => {
         }),
         new MiniCssExtractPlugin(),
         new ESLintPlugin({ extensions: ['js', 'jsx', 'ts', 'tsx'] }),
-        // new BundleAnalyzerPlugin(), // TODO
+        new BundleAnalyzerPlugin(),
     ]
 
     return base
@@ -72,12 +72,6 @@ const cssLoaders = (isScss: boolean, isModule: boolean) => {
                 implementation: require('sass'),
             },
         })
-        // loaders.push({
-        //     loader: 'sass-resources-loader',
-        //     options: {
-        //         resources: [path.resolve(__dirname, 'src/styles/index.scss')],
-        //     },
-        // })
     }
 
     return loaders
@@ -101,8 +95,7 @@ const config: Configuration = {
         },
     },
     plugins: plugins(),
-    devtool: 'inline-source-map',
-    // devtool: IS_DEV ? 'source-map' : false,
+    devtool: false,
     devServer: {
         static: path.join(__dirname, 'build'), // ?
         historyApiFallback: true,

@@ -60,12 +60,6 @@ const cssLoaders = (isScss: boolean, isModule: boolean) => {
                 implementation: require('sass'),
             },
         })
-        // loaders.push({
-        //     loader: 'sass-resources-loader',
-        //     options: {
-        //         resources: [path.resolve(__dirname, 'src/styles/index.scss')],
-        //     },
-        // })
     }
 
     return loaders
@@ -88,7 +82,6 @@ const config: Configuration = {
     },
     plugins: plugins(),
     devtool: 'inline-source-map',
-    // devtool: IS_DEV ? 'source-map' : false,
     devServer: {
         static: path.join(__dirname, 'build'), // ?
         historyApiFallback: true,
