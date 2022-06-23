@@ -1,8 +1,11 @@
-import Activate from './Activate/Activate'
-import Authorization from './Authorization/Authorization'
+import React from 'react'
+
 import Header from './Header/Header'
 import Main from './Main/Main'
-import PlaceRedactor from './PlaceRedactor/PlaceRedactor'
-import Profile from './Profile/Profile'
+
+const Activate = React.lazy(() => import('./Activate/Activate'))
+const Authorization = React.lazy(() => import('./Authorization/Authorization'))
+const PlaceRedactor = React.lazy(() => import('./PlaceRedactor/PlaceRedactor'))
+const Profile = React.lazy(() => import('./Profile/Profile'))
 
 export { Activate, Authorization, Header, Main, PlaceRedactor, Profile }
