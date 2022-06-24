@@ -50,11 +50,11 @@ const Input: React.FC<ModelsUI.IInputProps> = ({
 
             {type === 'Password' ? (
                 <div className={style.passwordEye} onClick={handleChangePasswordEye}>
-                    <Icon type={isPasswordEyeOpen ? 'OpenEye' : 'CloseEye'} />
+                    <Icon type={isPasswordEyeOpen ? 'OpenEye' : 'CloseEye'} height={'44px'} />
                 </div>
             ) : icon ? (
                 <div className={style.icon}>
-                    <Icon type={icon} />
+                    <Icon type={icon} height={'22px'} />
                 </div>
             ) : null}
 

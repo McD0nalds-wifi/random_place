@@ -181,20 +181,24 @@ const Main: React.FC = () => {
                         />
                     ) : reducerState.randomPlacePhase === 'Success' && !reducerState.randomPlaceData ? (
                         <div className={style.emptyMap}>
-                            <Icon type={'Smile'} />
+                            <Icon type={'Empty'} height={'220px'} />
 
-                            <div className={style.emptyMap__title}>К сожалению по вашему запросу ничего не найдено</div>
+                            <div className={style.emptyMap__title}>
+                                К сожалению по вашему запросу
+                                <br />
+                                ничего не найдено
+                            </div>
                         </div>
                     ) : reducerState.randomPlacePhase === 'Failure' ? (
                         <div className={style.errorMap}>
-                            <Icon type={'Error'} />
+                            <Icon type={'Error'} height={'120px'} width={'120px'} />
 
                             <div className={style.emptyMap__title}>Произошла непредвиденная ошибка</div>
                             <div className={style.emptyMap__title}>Попробуйте повторить запрос чуть позже</div>
                         </div>
                     ) : (
                         <div className={style.emptyMap}>
-                            <Icon type={'Map'} />
+                            <Icon type={'Map'} height={'226px'} />
 
                             <div className={style.emptyMap__title}>Начните поиск места</div>
                         </div>

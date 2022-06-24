@@ -92,7 +92,7 @@ const PlaceRedactor: React.FC = () => {
     return (
         <div className={style.container}>
             <div className={style.title}>
-                <Icon type={'Back'} onClick={handleBackClick} />
+                <Icon type={'Back'} height={'24px'} onClick={handleBackClick} />
                 <h2>Создание места</h2>
             </div>
 

@@ -10,11 +10,10 @@ import coffeeImage from '../../assets/coffee.svg'
 import treeImage from '../../assets/tree.svg'
 import barImage from '../../assets/bar.svg'
 import checkImage from '../../assets/check.svg'
-import rateImage from '../../assets/rate.svg'
 import loaderImage from '../../assets/loader.svg'
-import mapImage from '../../assets/map.png'
+import mapImage from '../../assets/map.svg'
 import errorImage from '../../assets/error.png'
-import smileImage from '../../assets/smile.svg'
+import emptyImage from '../../assets/empty.svg'
 import openEyeImage from '../../assets/open_eye.svg'
 import closeEyeImage from '../../assets/close_eye.svg'
 import emailImage from '../../assets/email.svg'
@@ -22,6 +21,7 @@ import avatarImage from '../../assets/avatar.png'
 import logoutImage from '../../assets/logout.svg'
 import backImage from '../../assets/back.svg'
 import arrowImage from '../../assets/arrow.svg'
+import arrowLeft from '../../assets/arrow_left.svg'
 
 const getIcon = (type: EnumsUI.IconType): string => {
     switch (type) {
@@ -39,16 +39,14 @@ const getIcon = (type: EnumsUI.IconType): string => {
             return barImage
         case 'Check':
             return checkImage
-        case 'Rate':
-            return rateImage
         case 'Loader':
             return loaderImage
         case 'Map':
             return mapImage
         case 'Error':
             return errorImage
-        case 'Smile':
-            return smileImage
+        case 'Empty':
+            return emptyImage
         case 'OpenEye':
             return openEyeImage
         case 'CloseEye':
@@ -65,12 +63,14 @@ const getIcon = (type: EnumsUI.IconType): string => {
             return arrowImage
         case 'ArrowBottom':
             return arrowImage
+        case 'ArrowLeft':
+            return arrowLeft
         default:
             return ''
     }
 }
 
-const Icon: React.FC<ModelsUI.IIconProps> = ({ type, onClick }) => {
+const Icon: React.FC<ModelsUI.IIconProps> = ({ type, height = '100%', width = '100%', onClick }) => {
     const icon = getIcon(type)
 
     const handleIconClick = () => {
@@ -79,7 +79,16 @@ const Icon: React.FC<ModelsUI.IIconProps> = ({ type, onClick }) => {
         }
     }
 
-    return <img src={icon} className={style[type.toLocaleLowerCase()]} alt={`Icon ${type}`} onClick={handleIconClick} />
+    return (
+        <img
+            src={icon}
+            className={style[type]}
+            height={height}
+            width={width}
+            alt={`Icon ${type}`}
+            onClick={handleIconClick}
+        />
+    )
 }
 
 export default React.memo(Icon)

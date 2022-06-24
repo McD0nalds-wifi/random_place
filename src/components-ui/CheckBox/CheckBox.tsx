@@ -12,7 +12,7 @@ const CheckBox: React.FC<ModelsUI.ICheckboxProps> = ({ isChecked, title, onChang
         <label className={style.checkbox}>
             {title ? title : ''}
             <input type={'checkbox'} checked={isChecked} onChange={onChange} />
-            <span className={style.checkmark}>{isChecked ? <Icon type={'Check'} /> : null}</span>
+            <span className={style.checkmark}>{isChecked ? <Icon type={'Check'} height={'12px'} /> : null}</span>
         </label>
     )
 }

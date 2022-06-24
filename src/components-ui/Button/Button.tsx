@@ -14,7 +14,7 @@ const Button: React.FC<ModelsUI.IButtonProps> = ({ type, size, children, isDisab
             disabled={isDisabled}
             onClick={onClick}
         >
-            {icon ? <Icon type={icon} /> : null}
+            {icon ? <Icon type={icon} height={'28px'} /> : null}
             {children}
         </button>
     )

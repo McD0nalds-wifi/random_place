@@ -37,6 +37,10 @@ const plugins = () => {
                     from: path.resolve(__dirname, 'public/favicon.ico'),
                     to: path.resolve(__dirname, 'build'),
                 },
+                {
+                    from: path.resolve(__dirname, 'public/robots.txt'),
+                    to: path.resolve(__dirname, 'build'),
+                },
             ],
         }),
         new MiniCssExtractPlugin(),

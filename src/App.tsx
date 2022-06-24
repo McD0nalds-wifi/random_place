@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { ToastContainer } from 'react-toastify'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
@@ -23,33 +23,35 @@ const Routers: React.FC = () => {
     }, [])
 
     return (
-        <Routes>
-            <Route path={'/'} element={<Main />} />
+        <Suspense fallback={<div>...Loading</div>}>
+            <Routes>
+                <Route path={'/'} element={<Main />} />
 
-            <Route path={'/authorization/:page'} element={<Authorization />} />
+                <Route path={'/authorization/:page'} element={<Authorization />} />
 
-            <Route path={'/activate/:link'} element={<Activate />} />
+                <Route path={'/activate/:link'} element={<Activate />} />
 
-            <Route
-                path={'/profile'}
-                element={
-                    <RequireAuth>
-                        <Profile />
-                    </RequireAuth>
-                }
-            />
+                <Route
+                    path={'/profile'}
+                    element={
+                        <RequireAuth>
+                            <Profile />
+                        </RequireAuth>
+                    }
+                />
 
-            <Route
-                path={'/placeRedactor'}
-                element={
-                    <RequireAuth>
-                        <PlaceRedactor />
-                    </RequireAuth>
-                }
-            />
+                <Route
+                    path={'/placeRedactor'}
+                    element={
+                        <RequireAuth>
+                            <PlaceRedactor />
+                        </RequireAuth>
+                    }
+                />
 
-            <Route path={'*'} element={<div>404 error</div>} />
-        </Routes>
+                <Route path={'*'} element={<div>404 error</div>} />
+            </Routes>
+        </Suspense>
     )
 }
 

@@ -57,26 +57,30 @@ const Slider: React.FC<ModelsUI.ISliderProps> = ({
                 <div className={style.slider__progress} ref={progressRef} />
             </div>
             <div className={style.range}>
-                <input
-                    type={'range'}
-                    className={style.range__min}
-                    onChange={handleMinRangeChange}
-                    min={minValue}
-                    max={maxValue}
-                    value={rangeMinValue}
-                    step={100}
-                    ref={minValueRef}
-                />
-                <input
-                    type={'range'}
-                    className={style.range__max}
-                    onChange={handleMaxRangeChange}
-                    min={minValue}
-                    max={maxValue}
-                    value={rangeMaxValue}
-                    step={100}
-                    ref={maxValueRef}
-                />
+                <label>
+                    <input
+                        type={'range'}
+                        className={style.range__min}
+                        onChange={handleMinRangeChange}
+                        min={minValue}
+                        max={maxValue}
+                        value={rangeMinValue}
+                        step={100}
+                        ref={minValueRef}
+                    />
+                </label>
+                <label>
+                    <input
+                        type={'range'}
+                        className={style.range__max}
+                        onChange={handleMaxRangeChange}
+                        min={minValue}
+                        max={maxValue}
+                        value={rangeMaxValue}
+                        step={100}
+                        ref={maxValueRef}
+                    />
+                </label>
             </div>
         </div>
     )

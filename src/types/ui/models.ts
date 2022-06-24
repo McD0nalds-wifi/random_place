@@ -31,6 +31,8 @@ export interface IButtonGroupItem {
 
 export interface IIconProps {
     type: Enums.IconType
+    height?: string
+    width?: string
     onClick?: () => void
 }
 

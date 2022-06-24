@@ -15,6 +15,7 @@ const $authHost = axios.create({
     withCredentials: true,
     headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Expose-Headers': 'Set-Cookie',
     },
 })
 

@@ -52,8 +52,8 @@ const Header: React.FC = () => {
 
             {userData && userData.isActivated ? (
                 <div className={style.ifno}>
-                    <Icon type={'Avatar'} onClick={handleUserIconClick} />
-                    <Icon type={'Logout'} onClick={handleLogoutIconClick} />
+                    <Icon type={'Avatar'} height={'34px'} onClick={handleUserIconClick} />
+                    <Icon type={'Logout'} height={'34px'} onClick={handleLogoutIconClick} />
                 </div>
             ) : (
                 <Button type={'Primary'} size={'Medium'} onClick={handleLoginClick}>

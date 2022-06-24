@@ -150,7 +150,7 @@ const Select: React.FC<ModelsUI.ISelectProps> = ({
                 disabled={isDisabled}
             />
             <div className={style.icon} style={{ top: label ? '33px' : '13px' }}>
-                <Icon type={isDropdownOpen ? 'ArrowTop' : 'ArrowBottom'} />
+                <Icon type={isDropdownOpen ? 'ArrowTop' : 'ArrowBottom'} height={'18px'} />
             </div>
 
             <div

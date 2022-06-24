@@ -6,7 +6,7 @@ import style from './Authorization.module.scss'
 
 import { ModelsView, EnumsView } from 'types'
 
-import { Button, Input, Loader } from 'components-ui'
+import { Button, Icon, Input, Loader } from 'components-ui'
 
 import * as authorizationThunk from '../../redux/thunks/authorization-thunk'
 
@@ -14,7 +14,7 @@ import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 
 /* START - View Authorization additional imports and module code. */
-import saintPetersburgVideo from '../../assets/saint_petersburg.MP4'
+// import saintPetersburgVideo from '../../assets/saint_petersburg.MP4'
 
 const Authorization: React.FC = () => {
     /* START - Get store values. */
@@ -116,15 +116,19 @@ const Authorization: React.FC = () => {
         }
     }
 
+    const handleBackClick = () => {
+        navigate('/')
+    }
+
     return (
         <div className={style.container}>
-            <div className={style.videoContainer}>
-                <video autoPlay muted loop className={style.video}>
-                    <source src={saintPetersburgVideo} type={'video/mp4'} />
-                </video>
-            </div>
+            <div className={style.image} />
             <div className={style.form}>
                 <div className={style.form__wrapper}>
+                    <div className={style.back}>
+                        <Icon type={'ArrowLeft'} height={'56px'} onClick={handleBackClick} />
+                    </div>
+
                     {page === 'login' ? (
                         <React.Fragment>
                             <h2 className={style.form__title}>Авторизация</h2>

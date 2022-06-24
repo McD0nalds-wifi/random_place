@@ -3,23 +3,25 @@
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-}
-
-.videoContainer {
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-.video {
     height: 100vh;
+}
+
+.image {
+    background-image: url('../../assets/autorizathion.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    border-right: 2px solid $gray;
 }
 
 .form {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .form__wrapper {
@@ -27,6 +29,12 @@
     display: flex;
     flex-direction: column;
     gap: 14px;
+}
+
+.back {
+    position: absolute;
+    top: 48px;
+    left: 48px;
 }
 
 .form__title {
