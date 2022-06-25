@@ -20,22 +20,6 @@
     filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
 }
 
-.CloseEye {
-    transition: 0.2s;
-
-    &:hover {
-        filter: invert(59%) sepia(23%) saturate(1048%) hue-rotate(200deg) brightness(94%) contrast(99%);
-    }
-}
-
-.OpenEye {
-    transition: 0.2s;
-
-    &:hover {
-        filter: invert(59%) sepia(23%) saturate(1048%) hue-rotate(200deg) brightness(94%) contrast(99%);
-    }
-}
-
 .Avatar {
     cursor: pointer;
 }
@@ -55,4 +39,26 @@
 
 .ArrowLeft {
     cursor: pointer;
+}
+
+.Close {
+    cursor: pointer;
+}
+
+.CircledHeart {
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+        filter: invert(31%) sepia(25%) saturate(0%) hue-rotate(222deg) brightness(92%) contrast(87%);
+    }
+}
+
+.CircledPhone {
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+        filter: invert(31%) sepia(25%) saturate(0%) hue-rotate(222deg) brightness(92%) contrast(87%);
+    }
 }

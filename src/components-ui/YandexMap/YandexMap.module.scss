@@ -30,12 +30,19 @@
 }
 
 .info__text {
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 6px;
 }
 
 .info__description {
     margin-top: 30px;
+}
+
+.info__icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 34px;
 }
 
 @media (max-width: 576px) {

@@ -36,7 +36,7 @@ const ButtonGroup: React.FC<ModelsUI.IButtonGroupProps> = ({ itemsList, onChange
                     <Button
                         key={`ButtonItem-${buttonItem.id}`}
                         type={buttonItem.isActive ? 'Primary' : 'Secondary'}
-                        size={'Small'}
+                        size={'Medium'}
                         icon={buttonItem.isActive ? buttonItem.iconActive : buttonItem.iconDefault}
                         onClick={() => handleButtonClick(buttonItem.id)}
                     >

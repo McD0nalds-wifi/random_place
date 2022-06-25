@@ -21,7 +21,10 @@ import avatarImage from '../../assets/avatar.png'
 import logoutImage from '../../assets/logout.svg'
 import backImage from '../../assets/back.svg'
 import arrowImage from '../../assets/arrow.svg'
-import arrowLeft from '../../assets/arrow_left.svg'
+import arrowLeftImage from '../../assets/arrow_left.svg'
+import crossImage from '../../assets/cross.svg'
+import circledHeartImage from '../../assets/circled_heart.svg'
+import circledPhoneImage from '../../assets/phone.svg'
 
 const getIcon = (type: EnumsUI.IconType): string => {
     switch (type) {
@@ -64,7 +67,13 @@ const getIcon = (type: EnumsUI.IconType): string => {
         case 'ArrowBottom':
             return arrowImage
         case 'ArrowLeft':
-            return arrowLeft
+            return arrowLeftImage
+        case 'Close':
+            return crossImage
+        case 'CircledHeart':
+            return circledHeartImage
+        case 'CircledPhone':
+            return circledPhoneImage
         default:
             return ''
     }

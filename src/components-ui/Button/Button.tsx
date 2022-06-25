@@ -8,7 +8,11 @@ import { ModelsUI } from 'types'
 import { Icon } from 'components-ui'
 
 const Button: React.FC<ModelsUI.IButtonProps> = ({ type, size, children, isDisabled = false, icon, onClick }) => {
-    return (
+    return type === 'Link' ? (
+        <span className={`${style.link} ${style[size.toLocaleLowerCase()]}`} onClick={onClick}>
+            {children}
+        </span>
+    ) : (
         <button
             className={`${style[type.toLocaleLowerCase()]} ${style[size.toLocaleLowerCase()]}`}
             disabled={isDisabled}

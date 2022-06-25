@@ -156,7 +156,7 @@ const Main: React.FC = () => {
                     <MenuContent {...reducerState} />
 
                     <div className={style.menu__button}>
-                        <Button type={'Primary'} size={'Medium'} onClick={handleSearchPlaceClick}>
+                        <Button type={'Primary'} size={'Large'} onClick={handleSearchPlaceClick}>
                             Поиск места
                         </Button>
                     </div>

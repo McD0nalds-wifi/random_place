@@ -3,14 +3,15 @@ import React from 'react'
 import { YMaps, Map, Placemark } from 'react-yandex-maps'
 
 import style from './YandexMap.module.scss'
+import './Balloon.css'
 
 import { ModelsUI } from 'types'
 
 /* START - YandexMap additional imports and module code. */
-import { Button, Modal } from 'components-ui'
+import { Button, Icon, Modal } from 'components-ui'
 
-import rateImage from '../../assets/rate.svg'
-import geoImage from '../../assets/geo.svg'
+import starImage from '../../assets/star.svg'
+import locationImage from '../../assets/location.svg'
 
 const renderBalloonContent = (
     name: string,
@@ -19,58 +20,34 @@ const renderBalloonContent = (
     imagesList: string[],
     isPlacemarkLoaded: boolean,
 ) => `
-    <div style="width: 230px">
-        <div style="
-            background-image: url(${imagesList.length > 0 ? imagesList[0] : ''});
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-            height: 120px;
-            border-radius: 10px;"
-        ></div>
+    <div class='container'>
+        <div class='placeImage' style="background-image: url(${imagesList.length > 0 ? imagesList[0] : ''});"></div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 14px;">
-            <div style="font-size: 20px; font-weight: bold; color: #282828;">${name}</div>
-            
-            <div style="display: flex; gap: 6px; align-items: center;">
-                <img style="height: 20px;" src="${rateImage}" />
-                <div style="font-size: 20px; font-weight: bold; color: #282828;">${rating}</div>
+        <div class='header'>
+            <div class='header__title'>${name}</div>
+            <div class='header__likeIcon'></div>
+        </div>
+
+        <div class='info'>
+            <div class='info__address'>
+                <img height='20px' width='20px' src='${locationImage}' alt='location' />
+                <div class='address__title'>${address}</div>
+            </div>
+
+            <div class='info__rate'>
+                <img height='17px' width='17px' src='${starImage}' alt='rate' />
+                <div class='rate__title'>${rating}</div>
             </div>
         </div>
-
-        <div style="display: flex; gap: 6px; align-items: baseline;">
-            <img style="height: 14px; filter: invert(86%) sepia(9%) saturate(176%) hue-rotate(201deg) brightness(85%) contrast(85%);" src="${geoImage}" />
-            <div style="font-size: 14px; color: #b4b4bc; margin-top: 14px;">${address}</div>
-        </div>
     
-        <div style="display: flex; justify-content: center; margin-top: 10px">
+        <div class='footer'>
             <button
                 id="yandexMap_button_id"
+                class='button'
                 style="
-                    outline: none;
-                    border: none;
-                    font-size: 14px;
-                    font-weight: 600;
-                    border-radius: 10px;
-                    transition: 0.2s;
                     cursor: ${!isPlacemarkLoaded ? 'progress' : 'pointer'};
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    padding: 10px 20px;
-                    background-color: #ffffff;
-                    color: #000000;
-                    box-shadow: inset 0 0 0 1.5px #efeff1;
-                    transition: 0.2s;
                     opacity: ${!isPlacemarkLoaded ? '0.5' : '1'};"
                 onMouseOver="this.style.opacity = ${!isPlacemarkLoaded ? '1' : '0.8'}"
-                onMouseOut="this.style.opacity = '1'" 
-                onMouseDown="this.style.backgroundColor = '#efeff1'" 
-                onMouseUp="this.style.backgroundColor = '#ffffff'"
             >Подробнее</button>
         </div>
     </div>`
@@ -209,11 +186,17 @@ const YandexMap: React.FC<ModelsUI.IYandexMapProps> = ({
                             </div>
                         ) : null}
 
-                        {phoneNumber.trim().length > 1 ? (
-                            <Button type={'Primary'} size={'Medium'} onClick={handlePhoneNumberCall}>
-                                Позвонить
-                            </Button>
-                        ) : null}
+                        <div className={style.info__icons}>
+                            {phoneNumber.trim().length > 1 ? (
+                                <Icon
+                                    type={'CircledPhone'}
+                                    height={'40px'}
+                                    width={'40px'}
+                                    onClick={handlePhoneNumberCall}
+                                />
+                            ) : null}
+                            <Icon type={'CircledHeart'} height={'40px'} width={'40px'} />
+                        </div>
                     </div>
                 </div>
                 <div className={style.info__description}>{description}</div>

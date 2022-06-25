@@ -56,7 +56,7 @@ const Header: React.FC = () => {
                     <Icon type={'Logout'} height={'34px'} onClick={handleLogoutIconClick} />
                 </div>
             ) : (
-                <Button type={'Primary'} size={'Medium'} onClick={handleLoginClick}>
+                <Button type={'Primary'} size={'Large'} onClick={handleLoginClick}>
                     Войти
                 </Button>
             )}

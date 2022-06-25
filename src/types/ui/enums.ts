@@ -1,6 +1,6 @@
-export type ButtonType = 'Primary' | 'Secondary'
+export type ButtonType = 'Primary' | 'Secondary' | 'Link'
 
-export type ButtonSizeType = 'Small' | 'Medium'
+export type ButtonSizeType = 'Small' | 'Medium' | 'Large'
 
 export type TitleLevelType = 1 | 2 | 3 | 4 | 5
 
@@ -27,5 +27,8 @@ export type IconType =
     | 'ArrowTop'
     | 'ArrowBottom'
     | 'ArrowLeft'
+    | 'Close'
+    | 'CircledHeart'
+    | 'CircledPhone'
 
 export type InputType = 'Default' | 'Password'

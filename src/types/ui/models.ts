@@ -1,4 +1,4 @@
-import { EnumsRedux, ModelsRedux } from 'types'
+import { EnumsRedux } from 'types'
 
 import * as Enums from './enums'
 

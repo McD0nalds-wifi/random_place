@@ -42,6 +42,27 @@ const Authorization: React.FC = () => {
             }
         }
     }, [reducerState.loginPhase, reducerState.checkAuthPhase])
+
+    const keyDownHandler = React.useCallback(
+        (event: KeyboardEvent) => {
+            if (event.key === 'Enter') {
+                if (page === 'login') {
+                    dispatch(authorizationThunk.performLoginFormSubmit())
+                } else {
+                    dispatch(authorizationThunk.performRegistrationFormSubmit())
+                }
+            }
+        },
+        [page],
+    )
+
+    React.useEffect(() => {
+        document.addEventListener('keydown', keyDownHandler)
+
+        return () => {
+            document.removeEventListener('keydown', keyDownHandler)
+        }
+    }, [keyDownHandler])
     /* END - Tracking side-effects. */
 
     /* START - View Authorization content. */
@@ -165,9 +186,9 @@ const Authorization: React.FC = () => {
 
                             <div className={style.form__footer}>
                                 Нет аккаунта?{' '}
-                                <span className={style.form__link} onClick={handlePageParamChange}>
+                                <Button type={'Link'} size={'Medium'} onClick={handlePageParamChange}>
                                     Зарегистрироваться
-                                </span>
+                                </Button>
                             </div>
                         </React.Fragment>
                     ) : (
@@ -216,9 +237,9 @@ const Authorization: React.FC = () => {
 
                             <div className={style.form__footer}>
                                 Есть аккаунт?{' '}
-                                <span className={style.form__link} onClick={handlePageParamChange}>
+                                <Button type={'Link'} size={'Medium'} onClick={handlePageParamChange}>
                                     Войти
-                                </span>
+                                </Button>
                             </div>
                         </React.Fragment>
                     )}
