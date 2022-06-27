@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios'
 
 import { ModelsRedux, ModelsUI } from 'types'
 
-export const isDevMode = true // TODO
+export const isDevMode = false // TODO
 
 export const districtList: ModelsRedux.IDistrictItem[] = [
     { id: 1, title: 'Адмиралтейский', isChecked: true },

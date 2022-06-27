@@ -6,6 +6,7 @@ import ESLintPlugin from 'eslint-webpack-plugin'
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
 interface Configuration extends WebpackConfiguration {
     devServer?: WebpackDevServerConfiguration
@@ -30,6 +31,7 @@ const plugins = () => {
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin(),
         new ESLintPlugin({ extensions: ['js', 'jsx', 'ts', 'tsx'] }),
+        new ReactRefreshWebpackPlugin(),
     ]
 
     return base
@@ -81,9 +83,9 @@ const config: Configuration = {
         },
     },
     plugins: plugins(),
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
+    target: 'web',
     devServer: {
-        static: path.join(__dirname, 'build'), // ?
         historyApiFallback: true,
         port: 7001,
         open: true,
@@ -115,6 +117,7 @@ const config: Configuration = {
                     loader: 'babel-loader',
                     options: {
                         presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+                        cacheDirectory: true,
                     },
                 },
             },

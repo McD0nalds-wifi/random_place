@@ -101,11 +101,12 @@ const config: Configuration = {
     plugins: plugins(),
     devtool: false,
     devServer: {
-        static: path.join(__dirname, 'build'), // ?
+        static: path.join(__dirname, 'build'),
         historyApiFallback: true,
         port: 7001,
         open: true,
     },
+    target: 'browserslist',
     module: {
         rules: [
             {

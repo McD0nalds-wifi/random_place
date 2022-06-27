@@ -49,21 +49,21 @@ const MenuContent: React.FC<MainStateType> = (reducerState) => {
         }
     }
 
-    const handleAllDistrictsChange = React.useCallback(() => {
+    const handleAllDistrictsChange = () => {
         dispatch(mainThunk.performInputAllDistrictsChecked())
-    }, [])
+    }
 
-    const handleDistrictChange = React.useCallback((districtItemId: number) => {
+    const handleDistrictChange = (districtItemId: number) => {
         dispatch(mainThunk.performInputDistrictChecked(districtItemId))
-    }, [])
+    }
 
-    const handleRangeMinValueChange = React.useCallback((value: number) => {
+    const handleRangeMinValueChange = (value: number) => {
         dispatch(mainThunk.performInputRangeMinValueChange(value))
-    }, [])
+    }
 
-    const handleRangeMaxValueChange = React.useCallback((value: number) => {
+    const handleRangeMaxValueChange = (value: number) => {
         dispatch(mainThunk.performInputRangeMaxValueChange(value))
-    }, [])
+    }
 
     return (
         <React.Fragment>
@@ -134,6 +134,12 @@ const Main: React.FC = () => {
     const handleWindowSizeChange = () => {
         setMapHeight(window.innerWidth > 576 ? window.innerHeight - 130 : window.innerHeight - 87)
     }
+
+    React.useEffect(() => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            console.log(position)
+        })
+    }, [])
 
     React.useEffect(() => {
         window.addEventListener('resize', handleWindowSizeChange)
