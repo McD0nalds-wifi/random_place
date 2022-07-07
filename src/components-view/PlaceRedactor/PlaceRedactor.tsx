@@ -8,8 +8,6 @@ import { ModelsView } from 'types'
 
 import { Button, Icon, Input, InputFile, Select } from 'components-ui'
 
-import * as mainThunk from '../../redux/thunks/main-thunk'
-
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 
@@ -22,6 +20,7 @@ const PlaceRedactor: React.FC = () => {
     /* START - Get store values. */
     const reducerState = useTypedSelector((state) => state.authorization, shallowEqual)
 
+    // TODO START - вынести redux
     const [category, setCategory] = React.useState('Кафе')
     const [name, setName] = React.useState('')
     const [description, setDescription] = React.useState('')
@@ -36,6 +35,7 @@ const PlaceRedactor: React.FC = () => {
     const [openingHours, setOpeningHours] = React.useState('')
     const [telephone, setTelephone] = React.useState('')
     const [kitchen, setKitchen] = React.useState('')
+    // TODO END - вынести redux
     /* END - Get store values. */
 
     /* START - Tracking side-effects. */
@@ -60,33 +60,7 @@ const PlaceRedactor: React.FC = () => {
     }
 
     const handleCreatePlace = () => {
-        dispatch(
-            mainThunk.callPostAddPlace(
-                {
-                    category:
-                        category === 'Кафе'
-                            ? 'Cafe'
-                            : category === 'Бары'
-                            ? 'Bars'
-                            : category === 'Рестораны'
-                            ? 'Restaurants'
-                            : 'Parks',
-                    name: name,
-                    description: description,
-                    metroList: [metro],
-                    address: address,
-                    rating: +rating,
-                    district: district,
-                    latitude: +latitude,
-                    longitude: +longitude,
-                    averageCheck: +averageCheck,
-                    workingHoursList: openingHours.split(','),
-                    phoneNumber: telephone,
-                    kitchenList: kitchen.split(','),
-                },
-                image ? image : new File([], 'image'),
-            ),
-        )
+        // TODO
     }
 
     return (

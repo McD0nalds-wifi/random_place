@@ -8,6 +8,7 @@ import { ModelsUI } from 'types'
 import { Icon } from 'components-ui'
 
 const InputFile: React.FC<ModelsUI.IInputFileProps> = ({ onChange }) => {
+    // TODO
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files) {
             onChange(event.target.files[0])
